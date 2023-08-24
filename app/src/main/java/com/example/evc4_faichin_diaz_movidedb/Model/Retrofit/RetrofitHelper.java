@@ -9,12 +9,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public final class RetrofitHelper {
 
     public static Retrofit instance;
+    public static DogInterface service;
+
 
     public RetrofitHelper(){
     }
 
     public static  Retrofit getInstance(){
-        if(instance != null){
+        if(instance == null){
             Retrofit retrofit  = new Retrofit.Builder()
                     .baseUrl("https://dog.ceo/api/")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -28,7 +30,6 @@ public final class RetrofitHelper {
 
     }
 
-
     public  static OkHttpClient.Builder getLogginBuilder(){
         HttpLoggingInterceptor interceptor =  new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -40,5 +41,11 @@ public final class RetrofitHelper {
     }
 
 
+    public static DogInterface getService(){
+        if(service== null){
+            service =  getInstance().create(DogInterface.class);
+        }
+        return service;
+    }
 
 }
