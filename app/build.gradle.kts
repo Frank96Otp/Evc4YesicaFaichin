@@ -42,6 +42,12 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
 
+    //Room
+
+    implementation ("androidx.room:room-rxjava2:2.5.2")
+    implementation ("androidx.room:room-rxjava3:2.5.2")
+    implementation ("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-runtime:2.5.2")
     //glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
